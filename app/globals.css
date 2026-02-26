@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #000000;
     --foreground: #ededed;
   }
 }
@@ -23,4 +23,127 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  background: black;
+  padding: 0rem
+}
+
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Responsive max-widths */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px; /* ← matches your screenshot */
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Mobile tighter padding */
+@media (max-width: 575px) {
+  .container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+
+.container-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* ============================================
+   Your existing sidebar styles (unchanged base)
+   ============================================ */
+.left-sidebar,
+.right-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  width: 80px;
+  min-height: 100vh;
+  background: black;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+
+
+/* ============================================
+   Hide sidebars + remove content padding
+   on small & medium screens
+   ============================================ */
+@media (max-width: 1023px) {
+  .left-sidebar,
+  .right-sidebar {
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;     
+  }
+
+  .content {
+    padding: 0 !important;  
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .left-sidebar,
+  .right-sidebar {
+    width: 80px;
+    padding: 0rem;
+  }
+
+  .content {
+    padding: 0rem;
+  }
 }
