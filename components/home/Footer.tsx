@@ -1,36 +1,134 @@
+import { getFooterData } from "@/app/api/footerContentApi"
+import { manrope, outfit, poppins } from "@/public/assets/css/font";
+import Image from "next/image";
+import { platform } from "os";
 
 
 
-const Footer = () => {
+const Footer = async () => {
+  const footerData = await getFooterData();
+  // console.log("footerDat: ", footerData)
+
+  if (!footerData) return null;
   return (
-    <div><h1>Designing a digital experience requires more than placing elements on a screen. It involves understanding how users interact with content, how layouts adapt across devices, and how visual hierarchy guides attention. Dummy content plays a crucial role in this process, allowing designers and developers to focus on structure and behavior before real data is available.
+    <footer className="pt-40 lg:mx-27.5 lg:pt-14 pb-20">
+      <div className="container">
+        <div className="footer ">
+          <hr className="border-t-5 lg:border-t-3 border-gray-300 md:w-screen md:relative md:left-1/2 md:-translate-x-1/2 
+          lg:w-full lg:left-0 lg:translate-x-0" />
 
-When building interfaces, placeholder text helps simulate real-world usage. It reveals spacing issues, alignment problems, and responsiveness flaws that might otherwise go unnoticed. By using meaningful dummy content instead of repetitive filler, teams can better evaluate readability, contrast, and overall user experience.
+          {/* heading section  */}
+          <div className="pt-30 flex flex-col justify-center items-center lg:justify-start lg:items-start ">
+            <h3 className={`${manrope.className} font-semibold text-[35px] lg:text-[51px]  -mb-2 leading-none tracking-tight`}>
+              {footerData.heading}
+            </h3>
+            <h2
+              className={`${manrope.className} text-start text-[90px] lg:text-[160px] font-extrabold leading-none mb-2`}>
+              {footerData.texts}
+            </h2>
+          </div>
 
-Responsive design is especially dependent on realistic content. Text length affects line breaks, card heights, and grid balance. On smaller screens, long paragraphs may push critical elements below the fold, while short snippets can leave awkward gaps. Dummy content helps expose these scenarios early, reducing costly redesigns later.
+          <div className="contact_part lg:pt-12.5 pt-12  ">
+            {/* stay in touch section  */}
+            <div className="flex justify-center lg:justify-start">
+              {footerData.contactButton && (
+                <button className={`${poppins.className} font-normal btn-primary border-2 px-5.25 text-2xl lg:text-[16px] rounded-4xl`}>
+                  {footerData.contactButton.text}
+                </button>
+              )}
+            </div>
 
-Another benefit of well-written placeholder content is improved collaboration. Stakeholders who are not deeply technical often struggle to interpret empty layouts or Latin text. Clear, human-readable dummy content makes it easier to visualize the final product, gather feedback, and align expectations across teams.
 
-Consistency is also easier to maintain when content feels real. Headings, subheadings, body text, and call-to-action labels can be tested together to ensure a coherent tone and hierarchy. Designers can confirm that font sizes scale appropriately and that emphasis is applied where it matters most.
+            <div className="flex flex-col">
 
-From a development perspective, dummy content allows engineers to test edge cases. What happens when a title is very long? How does the layout respond if a description is missing? Does the sidebar overflow when populated with many items? These questions are easier to answer when content behaves like production data.
+              {/* Top Section */}
+              <div className="flex flex-col lg:flex-row pt-7.5 text-3xl lg:text-5xl gap-8">
 
-Accessibility testing also benefits from realistic placeholder text. Screen readers, focus order, and semantic structure can be evaluated more accurately. Meaningful text ensures that assistive technologies convey the right context, even before final copy is written.
+                {/* Phone number */}
+                <div className="w-full lg:w-1/2 flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left gap-2 lg:gap-4">
 
-Performance considerations come into play as well. Content length affects layout shifts, rendering behavior, and perceived load time. By using dummy text that approximates real usage, teams can better measure and optimize performance metrics during development rather than after launch.
+                  {/* Label – different on mobile vs desktop */}
+                  <p className="font-medium shrink-0 hidden lg:block">
+                    Ph:
+                  </p>
+                  <p className="font-medium lg:hidden">
+                    Phone
+                  </p>
 
-Dummy content is not meant to replace real copywriting, but it bridges the gap between design and implementation. It provides a practical foundation on which real content can later be layered without breaking the layout or logic of the application.
+                  {/* Phone numbers as list */}
+                  <ul className="flex flex-col gap-1.5">
+                    {footerData.phoneNumbers.map((number) => (
+                      <li key={number} className="text-gray-300 hover:text-white transition-colors">
+                        {number}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-In content-heavy applications, such as dashboards or editorial platforms, placeholder text helps validate information density. Too much content can overwhelm users, while too little may fail to communicate value. Testing with balanced dummy content helps teams strike the right compromise.
+                {/* Social links */}
+                <div className="w-full lg:w-1/2 flex flex-col items-center text-center lg:flex-row lg:items-start lg:justify-end lg:text-left gap-4">
 
-It is also worth noting that dummy content should evolve as a project matures. Early stages may require generic text, while later iterations benefit from content that closely mirrors the final tone and structure. This gradual refinement reduces friction when transitioning to production data.
+                  <p>FIND US</p>
 
-Ultimately, good dummy content supports better decision-making. It allows teams to evaluate design choices in context, anticipate user behavior, and refine interactions before real-world constraints apply. It saves time, reduces risk, and leads to more polished outcomes.
+                  <div className="flex gap-3 justify-center lg:justify-start">
+                    {footerData.socialLinks.map((item, i) =>
+                      item.icon ? (
+                        <div className="bg-white rounded-full" key={i}>
+                          <Image
+                            src={item.icon}
+                            alt={`${item.platform}-icon`}
+                            width={40}
+                            height={40}
+                            className="p-2"
+                          />
+                        </div>
+                      ) : null
+                    )}
+                  </div>
+                </div>
+              </div>
 
-Whether you are prototyping a new feature, building a layout system, or testing responsive behavior, investing a little effort into quality placeholder content pays dividends. It turns abstract ideas into tangible experiences and helps ensure that the final product feels intentional, usable, and complete.
 
-As projects grow in complexity, the role of thoughtful dummy content becomes even more important. It acts as a stand-in for future data while still respecting the realities of design, development, and user experience. By treating placeholder text as a tool rather than an afterthought, teams can build interfaces that are robust, flexible, and ready for real-world use.</h1></div>
+              {/* Bottom Section */}
+              <div className="flex flex-col lg:flex-row pt-12 pb-8 gap-8">
+
+                {/* Logo */}
+                <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+                  <div className="w-40 lg:w-55">
+                    <Image
+                      src={footerData.logo.asset.url}
+                      alt="footer-logo"
+                      height={200}
+                      width={300}
+                    />
+                  </div>
+                </div>
+
+                {/* Buttons */}
+                <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+                  <div className="flex flex-wrap gap-4 justify-center lg:justify-end text-center lg:text-left">
+                    {footerData.buttons.map((item, i) => (
+                      <button
+                        key={i}
+                        className="text-3xl lg:text-6xl font-thin border-b-2"
+                      >
+                        {item.text}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+    </footer>
   )
 }
 
-export default Footer
+export default Footer 

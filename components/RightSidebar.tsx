@@ -2,11 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { getRightSidebar } from "./home/sidebar";
 
-const RightSidebar = async () => {
+interface RightSidebarProps {
+  className?: string;
+}
+
+
+const RightSidebar = async ({ className = '' }: RightSidebarProps) => {
   const data = await getRightSidebar();
 
   return (
-    <aside className="right-sidebar  ">
+    <aside className={`${className}  right-sidebar  `}>
       <div className="hidden lg:flex gap-5 w-45  rounded-4xl bg-linear-to-r from-[#878889] to-white rotate-90 p-2">
         {data?.map((item) => (
         <Link key={item._key} href={item.url || "#"}

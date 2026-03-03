@@ -1,11 +1,9 @@
 import { sanityClient } from "@/lib/sanity.client"
 import Image from "next/image"
 import { Poppins } from "next/font/google"
+import { poppins } from "@/public/assets/css/font"
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "700"],
-})
+
 
 const query = `
   *[_type == "page" && slug.current == "home"][0].hero{
@@ -19,8 +17,8 @@ const HeroSection = async () => {
   const data = await sanityClient.fetch(query)
 
   return (
-    <section className=" pt-40 lg:mx-27.5 lg:pt-24 pb-40">
-      <div className="container ">
+    <section className=" pt-40 lg:mx-27.5 lg:pt-20 pb-40">
+      <div className=" ">
         <div className="flex flex-col  items-center justify-center gap-6 lg:pb-7">
           {/* Logo */}
           <Image
@@ -29,11 +27,11 @@ const HeroSection = async () => {
             height={1000}
             width={1000}
             priority
-            className="hidden lg:block lg:w-55  h-auto"
+            className="hidden lg:block lg:w-55  h-auto scale-150"
           />
 
-          {/* Hero Image */}
         </div>
+          {/* Hero Image */}
         <div className="flex items-center justify-center">
           <Image
             alt="background"
