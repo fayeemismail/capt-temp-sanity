@@ -43,10 +43,10 @@ export default async function HomeProjectSection() {
   const { heading, items } = data;
 
   return (
-    <section className=" pt-40 lg:mx-27.5 lg:pt-24 pb-40">
+    <section className=" pt-40 px-6 lg:px-27.5 lg:pt-24 pb-40">
       <div className="container">
         <div className="relative z-10 flex flex-col items-center justify-center lg:justify-start lg:items-start min-h-screen px-5  md:px-12 lg:px-16 py-16 md:py-20">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl  font-bold tracking-tight mb-2 md:mb-16 lg:mb-20 text-center ">
+        <h1 className="text-4xl md:text-7xl lg:text-8xl  font-bold tracking-tight mb-2 md:mb-16 lg:mb-20 text-center ">
           {heading || "Beyond the Brief"}
         </h1>
 

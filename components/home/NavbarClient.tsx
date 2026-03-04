@@ -39,8 +39,8 @@ const NavbarClient = ({ navbar }: { navbar: NavbarType }) => {
   return (
     <>
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-black">
-        <div className="flex items-center justify-between py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 lg:hidden bg-black max-w-full overflow-x-hidden">
+        <div className="flex items-center justify-between py-4 px-6">
           <div className="w-32">
             {logo && (
               <Image
@@ -82,12 +82,12 @@ const NavbarClient = ({ navbar }: { navbar: NavbarType }) => {
 
       {/* FULLSCREEN OVERLAY MENU */}
       <div
-        className={`fixed inset-0 z-40 bg-black transition-opacity duration-500 ease-in-out
-          ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
-        `}
+        className={`fixed inset-0 z-40 bg-black max-w-full overflow-x-hidden
+  ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
+`}
       >
         {/* offset for navbar height */}
-        <div className="pt-30 flex flex-col text-center h-full space-y-6">
+        <div className="pt-20 lg:pt-30 flex flex-col text-center h-full space-y-6">
           {links?.map((link) => (
             <Link
               key={link._key}

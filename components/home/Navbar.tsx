@@ -2,14 +2,18 @@ import { sanityClient } from '@/lib/sanity.client'
 import NavbarClient from './NavbarClient'
 
 const Navbar = async () => {
-  const data = await sanityClient.fetch(`
-    *[_type == "globalSettings"][0]{
-      navbar{
-        logo,
-        links
-      }
+  const data = await sanityClient.fetch(
+    `
+  *[_type == "globalSettings"][0]{
+    navbar{
+      logo,
+      links
     }
-  `)
+  }
+  `,
+    {},
+    { cache: "no-store" }
+  );
 
   return <NavbarClient navbar={data?.navbar} />
 }

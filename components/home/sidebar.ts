@@ -12,7 +12,7 @@ const SIDEBAR_QUERY = `
 `;
 
 export async function getLeftSidebar(): Promise<SidebarLink[]> {
-  const data = await sanityClient.fetch<SidebarLink[]>(SIDEBAR_QUERY);
+  const data = await sanityClient.fetch<SidebarLink[]>(SIDEBAR_QUERY, {}, { cache: "no-store" });
   return data ?? [];
 }
 

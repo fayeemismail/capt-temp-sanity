@@ -1,8 +1,6 @@
 import { sanityClient } from "@/lib/sanity.client"
 import Image from "next/image"
 
-
-
 const query = `
   *[_type == "page" && slug.current == "home"][0].hero{
     "backgroundImage": backgroundImage.asset->url,
@@ -12,46 +10,38 @@ const query = `
 `
 
 const HeroSection = async () => {
-  const data = await sanityClient.fetch(
-  query,
-  {},
-  { cache: "no-store" }
-)
+  const data = await sanityClient.fetch(query, {}, { cache: "no-store" })
 
   return (
-    <section className=" pt-40 lg:mx-27.5 lg:pt-20 pb-40">
-      <div className=" ">
-        <div className="flex flex-col  items-center justify-center gap-6 lg:pb-7">
-          {/* Logo */}
-          <Image
-            alt="logo"
-            src={data.logo}
-            height={1000}
-            width={1000}
-            priority
-            className="hidden lg:block lg:w-55  h-auto scale-150"
-          />
-
-        </div>
-          {/* Hero Image */}
-        <div className="flex items-center justify-center">
-          <Image
-            alt="background"
-            src={data.backgroundImage}
-            width={1920}
-            height={600}
-            priority
-            className="w-[93%] mb-7.5 lg:w-full h-auto block"
-          />
-        </div>
-
-        {/* Text */}
-        <div className="flex items-center justify-start   text-center">
-          <p className="px-0 lg:px-0 lg:text-[18px] text-[28px] text-white">
-            {data.text}
-          </p>
-        </div>
+    <section className="pt-32 pb-32 px-4 lg:px-27.5">
+      {/* Logo */}
+      <div className="flex justify-center mb-10">
+        <Image
+          alt="logo"
+          src={data.logo}
+          width={400}
+          height={400}
+          priority
+          className="hidden lg:block w-55 h-auto"
+        />
       </div>
+
+      {/* Hero Image */}
+      <div className="flex justify-center mb-8">
+        <Image
+          alt="background"
+          src={data.backgroundImage}
+          width={1920}
+          height={600}
+          priority
+          className="w-full max-w-full h-auto"
+        />
+      </div>
+
+      {/* Text */}
+      <p className="text-white text-center text-[clamp(18px,5vw,28px)] max-w-4xl mx-auto">
+        {data.text}
+      </p>
     </section>
   )
 }

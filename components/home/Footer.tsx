@@ -9,19 +9,18 @@ const Footer = async () => {
 
   if (!footerData) return null;
   return (
-    <footer className="pt-40 lg:mx-27.5 lg:pt-14 pb-20">
+    <footer className="pt-40 px-6 lg:px-27.5 lg:pt-14 pb-20">
       <div className="container">
         <div className="footer ">
-          <hr className="border-t-5 lg:border-t-3 border-gray-300 md:w-screen md:relative md:left-1/2 md:-translate-x-1/2 
-          lg:w-full lg:left-0 lg:translate-x-0" />
+          <hr className="border-t-5 lg:border-t-3 border-gray-300 w-full" />
 
           {/* heading section  */}
           <div className="pt-30 flex flex-col justify-center items-center lg:justify-start lg:items-start ">
-            <h3 className={` font-semibold text-[35px] lg:text-[51px] text-white -mb-2 leading-none tracking-tight`}>
+            <h3 className={` font-semibold text-[22px] lg:text-[51px] text-white -mb-2 leading-none tracking-tight`}>
               {footerData.heading}
             </h3>
             <h2
-              className={` text-start text-[90px] lg:text-[160px] text-white font-extrabold leading-none mb-2`}>
+              className={` text-start text-[40px] lg:text-[160px] text-white font-extrabold leading-none mb-2`}>
               {footerData.texts}
             </h2>
           </div>
@@ -30,7 +29,7 @@ const Footer = async () => {
             {/* stay in touch section  */}
             <div className="flex justify-center lg:justify-start">
               {footerData.contactButton && (
-                <button className={`$ font-semibold text-white border-white btn-primary border-2 px-5.25 text-2xl lg:text-[16px] rounded-4xl`}>
+                <button className={`$ font-semibold text-white border-white btn-primary border-2 px-5.25 text-xl lg:text-[16px] rounded-4xl max-w-full`}>
                   {footerData.contactButton.text}
                 </button>
               )}
