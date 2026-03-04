@@ -1,7 +1,6 @@
 // app/components/ProjectCards.tsx
 "use client";
 
-import { poppins } from "@/public/assets/css/font";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
@@ -129,7 +128,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                         : "opacity-0 translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0"
                     }`}
             >
-                <p className={`${poppins.className} text-sm md:text-2xl  lg:text-xl font-semibold text-white drop-shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform duration-500 ease-out`}>
+                <p className={` text-sm md:text-2xl  lg:text-xl font-extrabold text-white drop-shadow-lg translate-y-1 group-hover:translate-y-0 transition-transform duration-500 ease-out`}>
                     {project.name}
                 </p>
             </div>

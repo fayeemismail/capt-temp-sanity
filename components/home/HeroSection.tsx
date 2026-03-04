@@ -1,7 +1,5 @@
 import { sanityClient } from "@/lib/sanity.client"
 import Image from "next/image"
-import { Poppins } from "next/font/google"
-import { poppins } from "@/public/assets/css/font"
 
 
 
@@ -45,7 +43,7 @@ const HeroSection = async () => {
 
         {/* Text */}
         <div className="flex items-center justify-start   text-center">
-          <p className={`${poppins.className} px-0 lg:px-0  lg:text-[18px] text-[28px]`}>
+          <p className="px-0 lg:px-0 lg:text-[18px] text-[28px] text-white">
             {data.text}
           </p>
         </div>

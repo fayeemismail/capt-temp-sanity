@@ -1,5 +1,4 @@
 import { sanityClient } from "@/lib/sanity.client"
-import { poppins } from "@/public/assets/css/font";
 import Image from "next/image";
 
 
@@ -32,7 +31,7 @@ const HomeAbout = async () => {
                         />
                     </div>
                     <div className="flex w-166.25 lg:px-3.75 lg:text-start text-center  items-center justify-center">
-                        <p className={`${poppins.className} lg:text-[18px] text-[28px] w-158.75 `}>{aboutData.text}</p>
+                        <p className={`text-white lg:text-[18px] text-[28px] w-158.75 `}>{aboutData.text}</p>
                     </div>
                 </div>
             </div>

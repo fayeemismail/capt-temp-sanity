@@ -1,7 +1,5 @@
 import { getFooterData } from "@/app/api/footerContentApi"
-import { manrope, outfit, poppins } from "@/public/assets/css/font";
 import Image from "next/image";
-import { platform } from "os";
 
 
 
@@ -19,11 +17,11 @@ const Footer = async () => {
 
           {/* heading section  */}
           <div className="pt-30 flex flex-col justify-center items-center lg:justify-start lg:items-start ">
-            <h3 className={`${manrope.className} font-semibold text-[35px] lg:text-[51px]  -mb-2 leading-none tracking-tight`}>
+            <h3 className={` font-semibold text-[35px] lg:text-[51px]  -mb-2 leading-none tracking-tight`}>
               {footerData.heading}
             </h3>
             <h2
-              className={`${manrope.className} text-start text-[90px] lg:text-[160px] font-extrabold leading-none mb-2`}>
+              className={` text-start text-[90px] lg:text-[160px] font-extrabold leading-none mb-2`}>
               {footerData.texts}
             </h2>
           </div>
@@ -32,7 +30,7 @@ const Footer = async () => {
             {/* stay in touch section  */}
             <div className="flex justify-center lg:justify-start">
               {footerData.contactButton && (
-                <button className={`${poppins.className} font-normal btn-primary border-2 px-5.25 text-2xl lg:text-[16px] rounded-4xl`}>
+                <button className={`$ font-semibold btn-primary border-2 px-5.25 text-2xl lg:text-[16px] rounded-4xl`}>
                   {footerData.contactButton.text}
                 </button>
               )}

@@ -6,6 +6,7 @@ import Navbar from "@/components/home/Navbar";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
 import Footer from "@/components/home/Footer";
+import { manrope, outfit, poppins } from "@/public/assets/css/font";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className} ${manrope.className} antialiased`}>
         <div className="min-h-screen flex flex-col">
           <Navbar />
 
