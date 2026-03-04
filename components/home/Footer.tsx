@@ -30,7 +30,7 @@ const Footer = async () => {
             {/* stay in touch section  */}
             <div className="flex justify-center lg:justify-start">
               {footerData.contactButton && (
-                <button className={`$ font-semibold btn-primary border-2 px-5.25 text-2xl lg:text-[16px] rounded-4xl`}>
+                <button className={`$ font-semibold text-white border-white btn-primary border-2 px-5.25 text-2xl lg:text-[16px] rounded-4xl`}>
                   {footerData.contactButton.text}
                 </button>
               )}
@@ -49,7 +49,7 @@ const Footer = async () => {
                   <p className="font-medium shrink-0 hidden lg:block">
                     Ph:
                   </p>
-                  <p className="font-medium lg:hidden">
+                  <p className="font-medium text-white lg:hidden">
                     Phone
                   </p>
 
@@ -108,7 +108,7 @@ const Footer = async () => {
                     {footerData.buttons.map((item, i) => (
                       <button
                         key={i}
-                        className="text-3xl lg:text-6xl font-thin border-b-2"
+                        className="text-3xl lg:text-6xl font-thin text-white border-b-2 border-white"
                       >
                         {item.text}
                       </button>
