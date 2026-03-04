@@ -12,7 +12,11 @@ const query = `
 `
 
 const HeroSection = async () => {
-  const data = await sanityClient.fetch(query)
+  const data = await sanityClient.fetch(
+  query,
+  {},
+  { cache: "no-store" }
+)
 
   return (
     <section className=" pt-40 lg:mx-27.5 lg:pt-20 pb-40">

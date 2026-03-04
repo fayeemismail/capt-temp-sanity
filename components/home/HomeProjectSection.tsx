@@ -21,7 +21,7 @@ export default async function HomeProjectSection() {
   let data;
 
   try {
-    data = await sanityClient.fetch(query);
+    data = await sanityClient.fetch(query, {}, { cache: "no-store" });
     // console.log(data)
   } catch (error) {
     console.error("Sanity fetch error:", error);

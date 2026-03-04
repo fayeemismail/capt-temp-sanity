@@ -14,7 +14,7 @@ const query = `
 
 const HomeAbout = async () => {
 
-    const aboutData = await sanityClient.fetch(query);
+    const aboutData = await sanityClient.fetch(query, {}, { cache: "no-store" });
     // console.log("aboutData : ", aboutData)
 
     return (
