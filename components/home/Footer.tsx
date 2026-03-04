@@ -17,11 +17,11 @@ const Footer = async () => {
 
           {/* heading section  */}
           <div className="pt-30 flex flex-col justify-center items-center lg:justify-start lg:items-start ">
-            <h3 className={` font-semibold text-[35px] lg:text-[51px]  -mb-2 leading-none tracking-tight`}>
+            <h3 className={` font-semibold text-[35px] lg:text-[51px] text-white -mb-2 leading-none tracking-tight`}>
               {footerData.heading}
             </h3>
             <h2
-              className={` text-start text-[90px] lg:text-[160px] font-extrabold leading-none mb-2`}>
+              className={` text-start text-[90px] lg:text-[160px] text-white font-extrabold leading-none mb-2`}>
               {footerData.texts}
             </h2>
           </div>
