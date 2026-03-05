@@ -241,7 +241,7 @@ function ProjectCard({
               }`}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority={index < 2} // Only prioritize first 2 images
-              quality={100} // Reduced quality for faster loading
+              quality={85} // Reduced quality for faster loading
               loader={sanityImageLoader}
               onLoad={handleLocalImageLoad}
               loading={index < 4 ? "eager" : "lazy"}
