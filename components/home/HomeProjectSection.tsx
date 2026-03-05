@@ -1,6 +1,8 @@
-// app/components/HomeProjectSection.tsx  (or wherever you place it)
+// app/components/HomeProjectSection.tsx
 import { sanityClient } from "@/lib/sanity.client";
-import ProjectCards from "./ProjectCards"; // Import the client part
+import { Suspense } from "react";
+import ProjectCards from "./ProjectCards";
+import ProjectSectionSkeleton from "./ProjectSectionSkeleton";
 
 const query = `
 *[_type == "page" && slug.current == "home"][0].projects{
@@ -11,6 +13,14 @@ const query = `
     name,
     "mediaType": media.mediaType,
     "image": media.image.asset->url,
+    "imageMetadata": media.image.asset->{
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    },
     "videoFile": media.videoFile.asset->url,
     "videoUrl": media.videoUrl
   }
@@ -19,10 +29,13 @@ const query = `
 
 export default async function HomeProjectSection() {
   let data;
-
+  
   try {
-    data = await sanityClient.fetch(query, {}, { cache: "no-store" });
-    // console.log(data)
+    data = await sanityClient.fetch(query, {}, { 
+      cache: "no-store",
+      // Add timeout handling
+      signal: AbortSignal.timeout(10000) // 10 second timeout
+    });
   } catch (error) {
     console.error("Sanity fetch error:", error);
     return (
@@ -32,7 +45,7 @@ export default async function HomeProjectSection() {
     );
   }
 
-  if (!data || !data.items || !Array.isArray(data.items) || data.items.length === 0) {
+  if (!data?.items?.length) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <p className="text-2xl">No projects available at the moment</p>
@@ -40,22 +53,21 @@ export default async function HomeProjectSection() {
     );
   }
 
-  const { heading, items } = data;
-
   return (
-    <section className=" pt-40 px-6 lg:px-27.5 lg:pt-24 pb-40">
-      <div className="container">
-        <div className="relative z-10 flex flex-col items-center justify-center lg:justify-start lg:items-start min-h-screen px-5  md:px-12 lg:px-16 py-16 md:py-20">
-        <h1 className="text-4xl md:text-7xl lg:text-8xl  font-bold tracking-tight mb-2 md:mb-16 lg:mb-20 text-center ">
-          {heading || "Beyond the Brief"}
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6  md:gap-10 lg:gap-7  w-full max-w-7xl ">
-          <ProjectCards items={items} />
-        </div>
-      </div>
-      </div>
+    <section className="pt-10 px-4 lg:px-28 lg:pt-24 pb-5">
+  <div className="max-w-7xl mx-auto">
+    <div className="relative z-10 flex flex-col items-center lg:items-start justify-center lg:justify-start py-16 md:py-20">
       
-    </section>
+      <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 md:mb-16 lg:mb-20 text-center lg:text-left">
+        {data.heading || "Beyond the Brief"}
+      </h1>
+
+      <Suspense fallback={<ProjectSectionSkeleton />}>
+        <ProjectCards items={data.items} />
+      </Suspense>
+
+    </div>
+  </div>
+</section>
   );
 }
