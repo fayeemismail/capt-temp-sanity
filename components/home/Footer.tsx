@@ -1,5 +1,6 @@
 import { getFooterData } from "@/app/api/footerContentApi"
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -71,13 +72,15 @@ const Footer = async () => {
                     {footerData.socialLinks.map((item, i) =>
                       item.icon ? (
                         <div className="bg-white rounded-full" key={i}>
-                          <Image
-                            src={item.icon}
-                            alt={`${item.platform}-icon`}
-                            width={40}
-                            height={40}
-                            className="p-2"
-                          />
+                          <Link key={i} href={item.url || '#'} className="bg-white rounded-full">
+                            <Image
+                              src={item.icon}
+                              alt={`${item.platform}-icon`}
+                              width={40}
+                              height={40}
+                              className="p-2"
+                            />
+                          </Link>
                         </div>
                       ) : null
                     )}
@@ -103,14 +106,21 @@ const Footer = async () => {
 
                 {/* Buttons */}
                 <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-                  <div className="flex flex-wrap gap-4 justify-center lg:justify-end text-center lg:text-left">
+                  <div className="flex flex-wrap items-center justify-center lg:justify-end text-center lg:text-left">
                     {footerData.buttons.map((item, i) => (
-                      <button
-                        key={i}
-                        className="text-3xl lg:text-6xl font-thin text-white border-b-2 border-white"
-                      >
-                        {item.text}
-                      </button>
+                      <div key={i} className="flex items-center">
+                        <button
+                          className="text-xl lg:text-4xl font-thin text-white border-b-2 border-white"
+                        >
+                          {item.text}
+                        </button>
+
+                        {i !== footerData.buttons.length - 1 && (
+                          <span className="mx-4 text-xl lg:text-5xl font-thin text-white">
+                            |
+                          </span>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>

@@ -275,7 +275,7 @@ function ProjectCard({
 
       {/* Optional: Add a subtle gradient overlay on hover */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"
+        className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
