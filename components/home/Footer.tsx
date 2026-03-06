@@ -15,7 +15,7 @@ const Footer = async () => {
 
           {/* heading */}
           <div className="flex flex-col gap-10 justify-between lg:flex-row">
-            <p className="text-2xl lg:text-[33px] ">
+            <p className="text-3xl lg:text-[33px] leading-tight max-w-72.5 lg:max-w-[320px]">
               {footerData.heading}
             </p>
 
@@ -33,7 +33,7 @@ const Footer = async () => {
           <div className="flex flex-col-reverse lg:flex-row justify-between items-start gap-6">
 
             <div className="space-y-2">
-              <p className="flex flex-wrap gap-2 break-words">
+              <p className="flex flex-wrap gap-2 wrap-break-word">
                 <span className="uppercase">Phone:</span>
                 {footerData.phoneNumbers.map((number, index) => (
                   <span key={index}>
@@ -43,7 +43,7 @@ const Footer = async () => {
                 ))}
               </p>
 
-              <p className="break-words">Email: {footerData.email}</p>
+              <p className="wrap-break-word">Email: {footerData.email}</p>
             </div>
 
             <div className="flex flex-wrap gap-4 max-w-full">
