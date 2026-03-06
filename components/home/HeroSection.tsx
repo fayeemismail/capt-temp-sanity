@@ -5,7 +5,8 @@ const query = `
   *[_type == "page" && slug.current == "home"][0].hero{
     "backgroundImage": backgroundImage.asset->url,
     "logo": logo.asset->url,
-    "text": text
+    "text": text,
+    "heading": heading
   }
 `
 
@@ -27,7 +28,7 @@ const HeroSection = async () => {
       </div>
 
       {/* Hero Image */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-12">
         <Image
           alt="background"
           src={data.backgroundImage}
@@ -39,7 +40,10 @@ const HeroSection = async () => {
       </div>
 
       {/* Text */}
-      <p className="text-white text-center text-[clamp(18px,5vw,28px)] max-w-4xl mx-auto">
+      <p className="text-white text-3xl text-center ">
+        {data.heading}
+      </p>
+      <p className="text-white text-center text-[clamp(6px,5vw,22px)]  mx-auto">
         {data.text}
       </p>
     </section>
