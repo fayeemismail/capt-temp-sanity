@@ -15,13 +15,13 @@ const Footer = async () => {
 
           {/* heading */}
           <div className="flex flex-col gap-10 justify-between lg:flex-row">
-            <p className="text-3xl lg:text-[33px] leading-tight max-w-72.5 lg:max-w-[320px]">
+            <p className="text-3xl lg:text-[33px] text-white leading-tight max-w-72.5 lg:max-w-[320px]">
               {footerData.heading}
             </p>
 
             <div className="flex items-start">
-              <p className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 border rounded-full">
+              <p className="flex items-center text-white gap-3">
+                <span className="flex items-center  justify-center w-8 h-8 border rounded-full">
                   <ArrowRight size={16} />
                 </span>
                 {footerData.ctaButton?.text}
@@ -32,7 +32,7 @@ const Footer = async () => {
           {/* phone email and nav */}
           <div className="flex flex-col-reverse lg:flex-row justify-between items-start gap-6">
 
-            <div className="space-y-2">
+            <div className="space-y-2 text-white">
               <p className="flex flex-wrap gap-2 wrap-break-word">
                 <span className="uppercase">Phone:</span>
                 {footerData.phoneNumbers.map((number, index) => (
@@ -46,7 +46,7 @@ const Footer = async () => {
               <p className="wrap-break-word">Email: {footerData.email}</p>
             </div>
 
-            <div className="flex flex-wrap gap-4 max-w-full">
+            <div className="flex flex-wrap gap-4 text-white max-w-full">
               {footerData.navigationLinks.map((item, i) => (
                 <span key={i}>{item.text}</span>
               ))}
@@ -55,7 +55,7 @@ const Footer = async () => {
           </div>
 
           {/* bottom */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <div className="flex flex-col text-white lg:flex-row justify-between items-start lg:items-center gap-4">
 
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-6">
               <p>{footerData.copyrightText}</p>
