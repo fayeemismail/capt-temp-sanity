@@ -33,7 +33,7 @@ const Footer = async () => {
           <div className="flex flex-col-reverse lg:flex-row justify-between items-start gap-6">
 
             <div className="space-y-2 text-white">
-              <p className="flex flex-wrap gap-2 break-words">
+              <p className="flex flex-wrap gap-2 wrap-break-word">
                 <span className="uppercase">Phone:</span>
 
                 {footerData.phoneNumbers.map((number, index) => (
@@ -41,7 +41,9 @@ const Footer = async () => {
                     <a href={`tel:${number}`} className="hover:underline">
                       {number}
                     </a>
-                    {index !== footerData.phoneNumbers.length - 1 && " | "}
+                    {index !== footerData.phoneNumbers.length - 1 && (
+                      <span className="hidden lg:inline"> | </span>
+                    )}
                   </span>
                 ))}
               </p>
