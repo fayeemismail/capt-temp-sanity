@@ -14,8 +14,8 @@ export default async function Home() {
       <main >
         <HeroSection />
         <HomeAbout />
-        <HomeProjectSection />
         {data && <WhoWeAreSection data={data} />}
+        <HomeProjectSection />
       </main>
     </>
   );
