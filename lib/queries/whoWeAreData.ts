@@ -6,15 +6,6 @@ import { sanityClient } from "../sanity.client";
 export interface WhoWeAreSection {
   title: string;
   description: string;
-  stats: {
-    label: string;
-    value: string;
-    theme?: {
-      textColor?: string;
-      valueColor?: string;
-      dividerColor?: string;
-    };
-  }[];
   sectionTheme?: {
     titleColor?: string;
     descriptionColor?: string;
@@ -26,15 +17,6 @@ const whoWeAreQuery = `
   *[_type == "page" && slug.current == "home"][0].whoAreWe{
     title,
     description,
-    stats[]{
-      label,
-      value,
-      theme{
-        textColor,
-        valueColor,
-        dividerColor
-      }
-    },
     sectionTheme{
       titleColor,
       descriptionColor
