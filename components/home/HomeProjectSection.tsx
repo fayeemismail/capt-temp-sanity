@@ -58,7 +58,7 @@ export default async function HomeProjectSection() {
   <div className="max-w-7xl mx-auto">
     <div className="relative z-10 flex flex-col items-center lg:items-start justify-center lg:justify-start py-16 md:py-20">
       
-      <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 md:mb-16 lg:mb-20 text-center lg:text-left">
+      <h1 className="text-4xl md:text-7xl lg:text-8xl text-white font-bold tracking-tight mb-8 md:mb-16 lg:mb-20 text-center lg:text-left">
         {data.heading || "Beyond the Brief"}
       </h1>
 

@@ -1,3 +1,4 @@
+//components/home/HeroSection.tsx
 "use client";
 
 import { Hero } from "@/lib/queries/heroData";

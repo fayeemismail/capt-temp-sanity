@@ -1,3 +1,4 @@
+//app/page.tsx
 import HeroSection from "@/components/home/HeroSection";
 import HomeAbout from "@/components/home/HomeAbout";
 import Image from "next/image";
