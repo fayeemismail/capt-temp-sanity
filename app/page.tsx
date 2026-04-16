@@ -7,6 +7,14 @@ import { getWhoWeAre } from "@/lib/queries/whoWeAreData";
 import WhoWeAreSection from '../components/home/WhoWeAreSection'
 import { getHomeHero } from "@/lib/queries/heroData";
 
+export async function generateMetadata() {
+  return {
+    title: "Font Creative Studio",
+    description:
+      "Font is a brand positioning company that helps businesses build powerful brands through decisive strategies and growth-driven tactics rooted in customer-centric insights.",
+  };
+}
+
 export default async function Home() {
 
   const data = await getWhoWeAre();
