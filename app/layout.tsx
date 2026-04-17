@@ -70,11 +70,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
-    ],
+    icon: "/favicon.ico",
   },
 };
 
@@ -83,9 +79,9 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children, }: {  children: React.ReactNode;}) {
+export default function RootLayout({ children, }: { children: React.ReactNode; }) {
 
-   const schema = getOrganizationSchema();
+  const schema = getOrganizationSchema();
 
 
   return (
@@ -93,19 +89,19 @@ export default function RootLayout({ children, }: {  children: React.ReactNode;}
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${outfit.className} ${manrope.className} antialiased`}>
         <div className="min-h-screen flex flex-col">
           <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
           <Navbar />
 
           <div className="app-layout flex flex-1">
             <LeftSidebar className="hidden lg:flex" />
-            
+
             <main className="content flex-1 bg-black">
               {children}
               <Footer />
             </main>
-            
+
             <RightSidebar className="hidden lg:flex" />
           </div>
         </div>
