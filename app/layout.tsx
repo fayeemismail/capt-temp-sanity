@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Font Creative Studio",
     images: [
       {
-        url: "https://cdn.sanity.io/images/offgjs63/production/17f48c935935f36a131e160678e5e49b12b1f11f-2174x471.png",
+        url: "https://cdn.sanity.io/images/offgjs63/production/ea9a0ec1660543edc65af8ea5a9527298a3bea37-698x149.svg",
         width: 1200,
         height: 630,
       },
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     description:
       "Brand positioning, marketing, and creative solutions for modern businesses.",
     images: [
-      "https://cdn.sanity.io/images/offgjs63/production/17f48c935935f36a131e160678e5e49b12b1f11f-2174x471.png",
+      "https://cdn.sanity.io/images/offgjs63/production/ea9a0ec1660543edc65af8ea5a9527298a3bea37-698x149.svg",
     ],
   },
 
